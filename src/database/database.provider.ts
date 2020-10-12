@@ -1,10 +1,10 @@
 import { DATABASE_PROVIDER } from 'src/constants'
 import { Sequelize } from 'sequelize-typescript'
+import { User } from '../modules/users/user.entity'
 
-export const DatabaseProvider = {
+export const DatabaseProvider = [{
     provide: DATABASE_PROVIDER,
     useFactory: async(): Promise<Sequelize> => {
-        console.log(process.env.DB_HOST, process.env.DB_PORT, process.env.DB_USER, process.env.DB_USER_PASSWORD, process.env.DB_NAME)
         const sequelize = new Sequelize({
             dialect: 'postgres',
             host: process.env.DB_HOST,
@@ -20,8 +20,8 @@ export const DatabaseProvider = {
                 }
             },
         })
-        sequelize.addModels([])
+        sequelize.addModels([User])
         sequelize.sync()
         return sequelize
     }
-}
+}]
