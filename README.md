@@ -14,5 +14,5 @@
 * Port: 23963
 * Database Name: defaultdb
 ## Проверка работоспособности API
-В целях упрощения проверки прилагется список запросов в [REST API файле](https://github.com/Kiselb/MY-COURSES-APINEST/blob/master/test.http)
+В целях упрощения проверки прилагется список запросов в [REST Client файле](https://github.com/Kiselb/MY-COURSES-APINEST/blob/master/test.http)
 JWT токен выводится в консоль при выполнении login запроса
