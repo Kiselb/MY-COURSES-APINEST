@@ -1,6 +1,9 @@
 import { DATABASE_PROVIDER } from 'src/constants'
 import { Sequelize } from 'sequelize-typescript'
 import { User } from '../modules/users/user.entity'
+import { Course } from '../modules/courses/course.entity'
+import { Stream } from '../modules/streams/stream.entity'
+import { CourseLesson } from '../modules/courses-lessons/course-lesson.entity'
 
 export const DatabaseProvider = [{
     provide: DATABASE_PROVIDER,
@@ -20,7 +23,7 @@ export const DatabaseProvider = [{
                 }
             },
         })
-        sequelize.addModels([User])
+        sequelize.addModels([User, Course, Stream, CourseLesson])
         sequelize.sync()
         return sequelize
     }

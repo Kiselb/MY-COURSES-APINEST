@@ -1,2 +1,64 @@
-GET http://localhost:3000/Users HTTP/1.1
+GET http://localhost:3000/api/v1/Users HTTP/1.1
+###
+
+POST http://localhost:3000/api/v1/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "ivanivanov@ivanivanov.ru",
+    "password": "12345"
+}
+###
+POST http://localhost:3000/api/v1/auth/signup HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Shura Balaganov",
+    "email": "shurabalaganov@shurabalaganov.ru",
+    "password": "12345"
+}
+###
+GET http://localhost:3000/api/v1/Courses HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
+###
+POST http://localhost:3000/api/v1/Courses HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
+content-type: application/json
+
+{
+    "title": "Вводный курс Data Science",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
+}
+###
+PATCH http://localhost:3000/api/v1/Courses/1/Activate HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
+
+###
+PATCH http://localhost:3000/api/v1/Courses/1/Retire HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
+
+###
+PATCH http://localhost:3000/api/v1/Courses/1/Restore HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
+
+###
+POST http://localhost:3000/api/v1/Courses/1/Streams HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
+content-type: application/json
+
+{
+    "start": "2020-09-01",
+    "finish": "2020-11-01"
+}
+###
+POST http://localhost:3000/api/v1/Courses/1/Lessons HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
+content-type: application/json
+
+{
+    "orderNo": "1",
+    "theme": "Вводный урок по курсу",
+    "purpose": "Программа курса. Правила сдачи домашних заданий",
+    "duration": "2"
+}
 ###
