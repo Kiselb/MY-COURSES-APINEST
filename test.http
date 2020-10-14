@@ -1,6 +1,7 @@
+// Список пользователей
 GET http://localhost:3000/api/v1/Users HTTP/1.1
 ###
-
+// Вход в систему
 POST http://localhost:3000/api/v1/auth/login HTTP/1.1
 content-type: application/json
 
@@ -8,6 +9,7 @@ content-type: application/json
     "username": "ivanivanov@ivanivanov.ru",
     "password": "12345"
 }
+// Регистрация пользователя
 ###
 POST http://localhost:3000/api/v1/auth/signup HTTP/1.1
 content-type: application/json
@@ -17,10 +19,12 @@ content-type: application/json
     "email": "shurabalaganov@shurabalaganov.ru",
     "password": "12345"
 }
+// Мои курсы (приватные курсы)
 ###
 GET http://localhost:3000/api/v1/Courses HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
 ###
+// Регистрация моего курса
 POST http://localhost:3000/api/v1/Courses HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
 content-type: application/json
@@ -30,18 +34,22 @@ content-type: application/json
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
 }
 ###
+// Активация моего курса
 PATCH http://localhost:3000/api/v1/Courses/1/Activate HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
 
 ###
+// Удаление (мягкое) моего курса
 PATCH http://localhost:3000/api/v1/Courses/1/Retire HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
 
 ###
+// Восстановление моего курса
 PATCH http://localhost:3000/api/v1/Courses/1/Restore HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
 
 ###
+// Регистрация потока моего курса
 POST http://localhost:3000/api/v1/Courses/1/Streams HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
 content-type: application/json
@@ -51,6 +59,7 @@ content-type: application/json
     "finish": "2020-11-01"
 }
 ###
+// Добавление лекции к моему курсу
 POST http://localhost:3000/api/v1/Courses/1/Lessons HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
 content-type: application/json
@@ -61,4 +70,25 @@ content-type: application/json
     "purpose": "Программа курса. Правила сдачи домашних заданий",
     "duration": "2"
 }
+###
+// Удаление лекции моего курса
+DELETE http://localhost:3000/api/v1/Courses/1/Lessons/1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
+
+###
+// Добавление лекции к потоку моего курса
+POST http://localhost:3000/api/v1/Streams/1/Lessons HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
+content-type: application/json
+
+{
+    "theme": "Вводный урок по курсу",
+    "purpose": "Программа курса. Правила сдачи домашних заданий",
+    "duration": "2"
+}
+###
+// Удаление лекции потока моего курса
+DELETE http://localhost:3000/api/v1/Streams/1/Lessons/1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikl2YW4gSXZhbm92IiwiZW1haWwiOiJpdmFuaXZhbm92QGl2YW5pdmFub3YucnUiLCJjcmVhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTEwLTEyVDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2MDI1OTk1NTksImV4cCI6MTYwMzA3OTU1OX0.PPe8DE7z9wmhQJ7XvkhKRkehLEqCXY94YlBIlrzAPqo
+
 ###

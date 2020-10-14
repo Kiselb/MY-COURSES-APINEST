@@ -49,11 +49,11 @@ export class CoursesService {
         return await this.courseLessonRepository.create<CourseLesson>({ ...lesson, courseId})
     }
 
-    async updateLesson(lesson: CourseLessonDto, courseId) {
-        return await this.courseLessonRepository.update({ ...lesson }, { where: { id: courseId }})
+    async updateLesson(lesson: CourseLessonDto, lessonId) {
+        return await this.courseLessonRepository.update({ ...lesson }, { where: { id: lessonId }})
     }
 
     async removeLesson(lessonId) {
-        return await this.courseLessonRepository.destroy(lessonId)
+        return await this.courseLessonRepository.destroy({ where: { id: lessonId }})
     }
 }

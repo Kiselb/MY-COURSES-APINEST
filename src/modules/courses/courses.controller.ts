@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Patch, Request, UseGuards, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Put, Patch, Delete, Request, UseGuards, Body, Param } from '@nestjs/common';
 import { CoursesService } from './courses.service';
 import { AuthGuard } from '@nestjs/passport';
 import { CourseDto} from './dto/course.dto'
@@ -52,6 +52,12 @@ export class CoursesController {
     @Post(':courseId/lessons')
     async addLesson(@Param('courseId') courseId: number, @Body() lesson: CourseLessonDto, @Request() req): Promise<CourseLesson> {
         return await this.courseService.addLesson(lesson, courseId);
+    }
+
+    @UseGuards(AuthGuard('jwt'))
+    @Delete(':courseId/lessons/:lessonId')
+    async removeLesson(@Param('lessonId') lessonId: number) {
+        return await this.courseService.removeLesson(lessonId);
     }
 
 }

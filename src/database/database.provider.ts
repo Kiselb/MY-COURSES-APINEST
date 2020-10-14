@@ -4,6 +4,7 @@ import { User } from '../modules/users/user.entity'
 import { Course } from '../modules/courses/course.entity'
 import { Stream } from '../modules/streams/stream.entity'
 import { CourseLesson } from '../modules/courses-lessons/course-lesson.entity'
+import { StreamLesson } from 'src/modules/streams-lessons/stream-lesson.entity'
 
 export const DatabaseProvider = [{
     provide: DATABASE_PROVIDER,
@@ -23,7 +24,7 @@ export const DatabaseProvider = [{
                 }
             },
         })
-        sequelize.addModels([User, Course, Stream, CourseLesson])
+        sequelize.addModels([User, Course, Stream, CourseLesson, StreamLesson])
         sequelize.sync()
         return sequelize
     }
