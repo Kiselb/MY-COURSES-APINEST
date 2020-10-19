@@ -31,6 +31,7 @@ export class StreamsService {
     }
 
     async findAll(userId): Promise<Stream[]> {
+        console.log(`UserID: ${userId}`)
         return await this.streamRepository.findAll<Stream>({ where: { userId } })
     }
 

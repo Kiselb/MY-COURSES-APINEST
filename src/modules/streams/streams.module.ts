@@ -6,6 +6,7 @@ import { StreamsService } from './streams.service';
 
 @Module({
     providers:[StreamsService, ...streamsProviders, ...streamsLessonsProviders],
-    controllers: [StreamsController]
+    controllers: [StreamsController],
+    exports: [StreamsService]
 })
 export class StreamsModule {}

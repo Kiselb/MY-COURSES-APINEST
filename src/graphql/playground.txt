@@ -1,0 +1,141 @@
+query Course($courseId: Int!) {
+  course(courseId: $courseId) {
+    id
+    title
+    description
+    state
+  }
+}
+query CoursesList($id: Int!) {
+  courses(userId: $id) {
+    id
+    ownerId: userId
+    title
+    description
+  }
+}
+mutation addCourse($courseInput: CourseInput) {
+  addCourse(input: $courseInput) {
+    id
+    title
+    description
+  }
+}
+mutation activateCourse($activateCourseId: Int!) {
+  activateCourse(input: $activateCourseId)
+}
+mutation retireCourse($retireCourseId: Int!) {
+  retireCourse(input: $retireCourseId)
+}
+mutation restoreCourse($restoreCourseId: Int!) {
+  restoreCourse(input: $restoreCourseId)
+}
+mutation addStream($streamDto: StreamInput) {
+  addStream(input: $streamDto) {
+    id
+  }
+}
+mutation addCourseLesson($courseLessonDto: CourseLessonInput) {
+  addCourseLesson(input: $courseLessonDto) {
+    id
+    theme
+    purpose
+    duration
+  }
+}
+query Stream($streamId: Int!) {
+  stream(streamId: $streamId) {
+    id
+    courseId
+    userId
+    start
+    finish
+    state
+  }
+}
+query StreamsList($id: Int!) {
+  streams(userId: $id) {
+    id
+    start
+    finish
+    courseId
+  }
+}
+mutation activateStream($streamId: Int!) {
+  activateStream(input: $streamId)
+}
+mutation closeStream($streamId: Int!) {
+  closeStream(input: $streamId)
+}
+mutation restoreStream($streamId: Int!) {
+  restoreStream(input: $streamId)
+}
+mutation addStreamLesson($streamLessonDto: StreamLessonInput) {
+  addStreamLesson(input: $streamLessonDto) {
+    id
+    theme
+    purpose
+    dueDate
+    duration
+  }
+}
+query UsersList {
+  users {
+    id
+    email
+    name
+  }
+}
+query UserById($id: Int!) {
+  userById(userId: $id) {
+    id
+    name
+    email
+    password
+  }
+}
+query UserByEmail($email: String!) {
+  userByEmail(email: $email) {
+    id
+    name
+    email
+    password
+  }
+}
+
+## Variables
+{
+  "id": 1,
+  "email": "ivanivanov@ivanivanov.ru",
+  "courseId": 1,
+  "streamId": 1,
+  "courseInput": {
+    "title": "Курс тестирование программ",
+    "description": "Курс тестирования программ",
+    "userId": 1
+  },
+  "activateCourseId": 2,
+  "retireCourseId": 1,
+  "restoreCourseId": 1,
+  "streamDto": {
+    "start": "2020-09-01",
+    "finish": "2021-09-01",
+    "courseId": 2,
+    "userId": 1
+  },
+  "courseLessonDto": {
+    "orderNo": 1,
+    "theme": "Вводная лекция",
+    "purpose": "Ознакомление с курсом",
+    "duration": 1,
+    "courseId": 1,
+    "userId": 1
+  },
+  "streamLessonDto": {
+    "theme": "Вводная лекция курса",
+    "purpose": "Ознакомление с программой курса",
+    "duration": 2,
+    "dueDate": "2020-10-01",
+    "streamId": 1
+  }
+}
