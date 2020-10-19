@@ -33,7 +33,7 @@ export class StreamLesson extends Model<StreamLesson> {
         type: DataType.DATE,
         allowNull: true,
     })
-    dueDate: Date;
+    dueDate: string;
 
     @ForeignKey(() => Stream)
     @Column({

@@ -1,0 +1,94 @@
+type User {
+    id: Int!
+    name: String!
+    email: String!
+    password: String!
+}
+
+type Course {
+    id: Int!
+    title: String!
+    description: String!
+    state: String!
+    userId: Int!
+}
+
+type Stream {
+    id: Int!
+    start: String
+    finish: String
+    courseId: Int!
+    userId: Int!
+    state: String!
+}
+
+type CourseLesson {
+    id: Int!
+    orderNo: Int!
+    theme: String!
+    purpose: String!
+    duration: Int!
+    courseId: Int!
+}
+
+type StreamLesson {
+    id: Int!
+    theme: String!
+    purpose: String!
+    duration: Int!
+    dueDate: String!
+    streamId: Int!
+}
+
+input CourseInput {
+    title: String!
+    description: String!
+    userId: Int!
+}
+
+input StreamInput {
+    start: String
+    finish: String
+    courseId: Int!
+    userId: Int!
+}
+
+input CourseLessonInput {
+    orderNo: Int!
+    theme: String!
+    purpose: String!
+    duration: Int!
+    courseId: Int!
+    userId: Int!
+}
+
+input StreamLessonInput {
+    theme: String!
+    purpose: String!
+    duration: Int!
+    dueDate: String!
+    streamId: Int!
+}
+
+type Query {
+    users: [User!]!
+    userById(userId: Int!): User!
+    userByEmail(email: String!): User!
+    courses(userId: Int!): [Course!]!
+    course(courseId: Int!): Course
+    streams(userId: Int!): [Stream!]!
+    stream(streamId: Int!): Stream
+}
+
+type Mutation {
+    addCourse(input: CourseInput): Course
+    activateCourse(input: Int!): [Int]
+    retireCourse(input: Int!): [Int]
+    restoreCourse(input: Int!): [Int]
+    addStream(input: StreamInput): Stream
+    addCourseLesson(input: CourseLessonInput): CourseLesson
+    activateStream(input: Int!): [Int]
+    closeStream(input: Int!): [Int]
+    restoreStream(input: Int!): [Int]
+    addStreamLesson(input: StreamLessonInput): StreamLesson
+}

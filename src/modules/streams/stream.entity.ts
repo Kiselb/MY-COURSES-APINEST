@@ -18,16 +18,16 @@ export class Stream extends Model<Stream> {
     id: number;
     
     @Column({
-        type: DataType.DATE,
+        type: DataType.STRING,
         allowNull: false,
     })
-    start: Date;
+    start: string;
 
     @Column({
-        type: DataType.DATE,
+        type: DataType.STRING,
         allowNull: false,
     })
-    finish: Date;
+    finish: string;
 
     @Column({
         type: DataType.STRING,
